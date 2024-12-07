@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance Tracker</title>
+  <link rel="icon" href="images.jpeg" type="image/x-icon">
+
+  <link rel="stylesheet" href="Style.css">
+
+</head>
+<body>
+  <header>
+    <div class="title">
+        <img src="images.jpeg" alt="Finance Tracker Logo" id="logo">
+    <h1>Personal Finance Tracker</h1>    
+    </div>
+
+    <nav>     
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="add-expense.html">Add Expense</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="reports">
+      <h2>Expense Reports</h2>
+
+      <div class="chart-container">
+        <h3>Expense Breakdown by Category</h3>
+        <canvas id="categoryChart"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <h3>Spending Trends Over Time</h3>
+        <canvas id="trendChart"></canvas>
+      </div>
+
+      <div id="insights">
+        <h3>Insights</h3>
+        <p id="insightText">Your spending habits will be analyzed here!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Personal Finance Tracker. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="chart.js"></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance Tracker</title>
+  <link rel="icon" href="images.jpeg" type="image/x-icon">
+
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+        <img src="images.jpeg" alt="Finance Tracker Logo" id="logo">
+    <h1>Personal Finance Tracker</h1>    
+    </div>
+
+    <nav>     
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="add-expense.html">Add Expense</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="summary">
+        <h2>Summary</h2>
+        <div id="summary-data">
+          <div class="box">
+            <h3>Total Expenses</h3>
+            <p id="total-expenses">$0</p>
+          </div>
+          <div class="box">
+            <h3>Remaining Budget</h3>
+            <p id="remaining-budget">$0</p>
+          </div>
+        </div>
+      </section>
+      <section id="recent-transactions">
+        <h2>Recent Transactions</h2>
+        <table id="transactions">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+    </main>
+      <footer>
+      <p>© 2024 Personal Finance Tracker. All rights reserved.</p>
+    </footer>
+  <script src="script.js"></script>
+  <script>
+    // Function to load expenses and display them in the Recent Transactions table
+function loadExpenses() {
+    const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    const tbody = document.querySelector('#transactions tbody');
+
+    // Clear existing rows
+    tbody.innerHTML = '';
+
+    // Populate table with expenses
+    expenses.forEach(expense => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${expense.date}</td>
+            <td>${expense.name}</td>
+            <td>$${expense.amount}</td>
+            <td>${expense.category}</td>
+        `;
+
+        tbody.appendChild(row);
+    });
+
+    // Update summary (optional)
+    updateSummary(expenses);
+}
+
+// Function to calculate and update the summary data
+function updateSummary(expenses) {
+    const totalExpenses = expenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
+    document.getElementById('total-expenses').textContent = `$${totalExpenses}`;
+
+    // Example remaining budget (you can replace this logic)
+    const budget = 1000; // Example fixed budget
+    document.getElementById('remaining-budget').textContent = `$${budget - totalExpenses}`;
+}
+
+// Load expenses when the page is loaded
+document.addEventListener('DOMContentLoaded', loadExpenses);
+
+
+  </script>
+
+</body>
+</html>

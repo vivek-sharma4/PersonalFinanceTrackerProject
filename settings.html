@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance Tracker</title>
+  <link rel="icon" href="images.jpeg" type="image/x-icon">
+
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+        <img src="images.jpeg" alt="Finance Tracker Logo" id="logo">
+    <h1>Personal Finance Tracker</h1>    
+    </div>
+
+    <nav>     
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="add-expense.html">Add Expense</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="settings">
+      <h2>Settings</h2>
+
+      <div class="settings-item">
+        <h3>Set Monthly Budget</h3>
+        <label for="budgetInput">Enter your monthly budget:</label>
+        <input type="number" id="budgetInput" placeholder="e.g., 5000" />
+        <button id="saveBudget">Save Budget</button>
+        <p id="budgetMessage"></p>
+      </div>
+
+      <div class="settings-item">
+        <h3>Theme</h3>
+        <label for="themeToggle">Choose your theme:</label>
+        <button id="toggleTheme">Switch to Dark Mode</button>
+      </div>
+
+      <div class="settings-item">
+        <h3>Reset Data</h3>
+        <p>Clear all saved data from the app.</p>
+        <button id="resetData">Reset Data</button>
+        <p id="resetMessage"></p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 Personal Finance Tracker. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
